@@ -10,6 +10,9 @@ This repository is also a Codex plugin named `skills`. It currently ships:
 
 ```text
 .
+├── .claude-plugin/
+│   ├── marketplace.json
+│   └── plugin.json
 ├── .codex-plugin/plugin.json
 ├── marketplace.json
 ├── scripts/
@@ -35,15 +38,19 @@ The `skills` plugin exposes every skill under `./skills`.
 
 ## Install in Claude Code
 
-Clone the repository and copy the skill into Claude Code's skills directory:
+Install the plugin directly from the GitHub marketplace:
 
 ```bash
-git clone https://github.com/coresource-ai/skills.git
-cd skills
-./scripts/install.sh claude
+claude plugin marketplace add coresource-ai/skills
+claude plugin install skills@coresourceai-skills
 ```
 
-This installs `spec-writer` to `~/.claude/skills/spec-writer`.
+Or from inside Claude Code:
+
+```text
+/plugin marketplace add coresource-ai/skills
+/plugin install skills@coresourceai-skills
+```
 
 ## Direct Skill Install
 

@@ -1,0 +1,21 @@
+{
+  "name": "skills",
+  "version": "0.1.0",
+  "description": "CoreSourceAI skill pack for coding agents. Includes spec-writer for drafting agent-ready implementation specifications.",
+  "author": {
+    "name": "CoreSourceAI",
+    "url": "https://github.com/coresource-ai/skills"
+  },
+  "homepage": "https://github.com/coresource-ai/skills",
+  "repository": "https://github.com/coresource-ai/skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "agent-skills",
+    "claude-code",
+    "codex",
+    "planning",
+    "specification",
+    "spec-writer"
+  ],
+  "skills": "./skills/"
+}

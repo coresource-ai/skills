@@ -1,0 +1,28 @@
+{
+  "name": "coresourceai-skills",
+  "owner": {
+    "name": "CoreSourceAI",
+    "url": "https://github.com/coresource-ai"
+  },
+  "description": "Portable Agent Skills from CoreSourceAI.",
+  "plugins": [
+    {
+      "name": "skills",
+      "source": "./",
+      "description": "CoreSourceAI skill pack for coding agents.",
+      "author": {
+        "name": "CoreSourceAI",
+        "url": "https://github.com/coresource-ai/skills"
+      },
+      "homepage": "https://github.com/coresource-ai/skills",
+      "repository": "https://github.com/coresource-ai/skills",
+      "license": "Apache-2.0",
+      "category": "Productivity",
+      "tags": [
+        "agent-skills",
+        "planning",
+        "specification"
+      ]
+    }
+  ]
+}
