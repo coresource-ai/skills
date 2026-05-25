@@ -36,6 +36,20 @@ codex plugin add skills@coresourceai-skills
 
 The `skills` plugin exposes every skill under `./skills`.
 
+## How to Use
+
+Invoke `spec-writer` by name in your prompt:
+
+```text
+Use $spec-writer to draft an agent-ready implementation spec for adding a --since flag to the list command.
+```
+
+For Claude Code, plugin skills are also available as slash commands after install:
+
+```text
+/skills:spec-writer draft an agent-ready implementation spec for adding a --since flag to the list command.
+```
+
 ## Install in Claude Code
 
 Install the plugin directly from the GitHub marketplace:
