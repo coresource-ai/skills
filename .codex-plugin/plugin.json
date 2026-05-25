@@ -1,0 +1,37 @@
+{
+  "name": "skills",
+  "version": "0.1.0",
+  "description": "CoreSourceAI skill pack for coding agents. Includes spec-writer for drafting agent-ready implementation specifications.",
+  "author": {
+    "name": "CoreSourceAI",
+    "url": "https://github.com/coresourceai"
+  },
+  "homepage": "https://github.com/coresourceai/skills",
+  "repository": "https://github.com/coresourceai/skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "agent-skills",
+    "codex",
+    "claude-code",
+    "planning",
+    "specification",
+    "spec-writer"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "CoreSourceAI Skills",
+    "shortDescription": "Skill pack for agent-ready specs",
+    "longDescription": "Portable Agent Skills for coding agents, starting with spec-writer: a workflow for drafting concise implementation specs with task, success criteria, constraints, risks, edge cases, and optional planning gates.",
+    "developerName": "CoreSourceAI",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive"
+    ],
+    "websiteURL": "https://github.com/coresourceai/skills",
+    "defaultPrompt": [
+      "Use $spec-writer to draft an agent-ready implementation spec."
+    ],
+    "screenshots": [],
+    "brandColor": "#2563EB"
+  }
+}
