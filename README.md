@@ -22,26 +22,39 @@ This repository is also a Codex plugin named `skills`. It currently ships:
         └── examples/
 ```
 
-## Codex Plugin Install
+## Install in Codex
 
-From this repo root:
+Add the GitHub repository as a Codex plugin marketplace:
 
 ```bash
-codex plugin marketplace add "$(pwd)"
+codex plugin marketplace add coresource-ai/skills --ref main
+codex plugin add skills@coresourceai-skills
 ```
 
-Then install the `skills` plugin from the Codex plugin UI. The plugin exposes every skill under `./skills`.
+The `skills` plugin exposes every skill under `./skills`.
+
+## Install in Claude Code
+
+Clone the repository and copy the skill into Claude Code's skills directory:
+
+```bash
+git clone https://github.com/coresource-ai/skills.git
+cd skills
+./scripts/install.sh claude
+```
+
+This installs `spec-writer` to `~/.claude/skills/spec-writer`.
 
 ## Direct Skill Install
 
-Install `spec-writer` into common Agent Skills roots:
+Install into Codex or Claude Code from a local checkout:
 
 ```bash
 ./scripts/install.sh codex
 ./scripts/install.sh claude
 ```
 
-Install into any Agent Skills-compatible root:
+Install into any Agent Skills-compatible root from a local checkout:
 
 ```bash
 ./scripts/install.sh generic /path/to/skills-root
