@@ -1,8 +1,4 @@
-# Example Spec: Search Endpoint
-
-A complete spec for adding a `GET /api/v1/search` endpoint to a REST API. Demonstrates every section the spec-writer skill emits, with realistic content, generic file paths, and copy-pasteable verification commands. Copy this file as a starting template — the `##` and `###` levels below are the literal heading levels the parser expects.
-
----
+https://github.com/example/product-api
 
 ## Task
 

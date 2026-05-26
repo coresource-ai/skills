@@ -1,8 +1,4 @@
-# Example Spec: `--since` Flag for List Command
-
-A **core-only** spec for adding a `--since` filter to `mytool list`. Demonstrates a compact spec with required sections plus relevant optional context, and no advanced sections.
-
----
+https://github.com/example/mytool
 
 ## Task
 

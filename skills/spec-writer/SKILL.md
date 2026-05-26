@@ -16,6 +16,9 @@ A spec has two tiers. **Default to the core tier, and keep it as small as the ta
 **Required core sections (always write these):**
 `## Task`, `## Success Criteria`.
 
+**Repository URL header (write when known):**
+If the target GitHub repository URL is supplied by the user or can be inferred from the current checkout, write the canonical `https://github.com/<owner>/<repo>` URL as the first non-empty line of the spec, followed by a blank line, before `## Task`. This URL is metadata, not a section, and is not counted as a core section. If no repository URL is known, omit it rather than blocking an otherwise concrete spec.
+
 **Optional core context (add only when relevant):**
 `## Constraints`, `## Assumptions`, `## Risks`, `## Edge Cases`, `## Open Questions`.
 
@@ -69,16 +72,18 @@ When you stop to ask, name the gap directly: "I need a concrete acceptance test 
 
 ### Step 1: Read the Existing Codebase and Documentation
 
-Ground yourself in the real code, config, schemas, and docs the work will touch. Note exact file paths, function names, types, and schema keys. Record current shapes of CLI flags, API routes, config keys, or database schemas. **Output:** A working list of file paths and surfaces that constrain the design.
+Ground yourself in the real code, config, schemas, and docs the work will touch. Note exact file paths, function names, types, and schema keys. Record current shapes of CLI flags, API routes, config keys, or database schemas. Capture the target GitHub repository URL from the user prompt or, when working in the checkout, infer it from `git remote get-url origin` and normalize SSH/Git URLs to `https://github.com/<owner>/<repo>`. **Output:** A working list of file paths and surfaces that constrain the design, plus the repository URL when known.
 
 ---
 
 ### Step 2: Define the Intent and Objective
 
-Write a single, unambiguous statement of what the work must accomplish. Start with `## Task` (also accepted: `## Task Description`). One or two paragraphs capturing **what** and **why**—avoid *how*.
+Write a single, unambiguous statement of what the work must accomplish. If a repository URL is known, it must be the first non-empty line, followed by a blank line. Then start with `## Task` (also accepted: `## Task Description`). One or two paragraphs capturing **what** and **why**—avoid *how*.
 
 **Example:**
 ```markdown
+https://github.com/example/my-tool
+
 ## Task
 Add a `--timeout` flag to the `run` command that caps wall-clock
 duration of each step. When exceeded, cancel the step and record
@@ -223,7 +228,7 @@ Run the spec through the [Writing Checklist](#writing-checklist). A failing requ
 
 Two outputs, in this order:
 
-1. **Full spec to stdout.** Print the complete spec markdown. This is the authoritative output: downstream agents read it from here, and the user reads it inline in the conversation.
+1. **Full spec to stdout.** Print the complete spec markdown. When a repository URL is known, it is the first non-empty line, followed by a blank line, then `## Task`. This is the authoritative output: downstream agents read it from here, and the user reads it inline in the conversation.
 2. **One-line status, then return.** After the spec body, print a single status line and return control. Do not write to disk.
 
 **Status line format:**
@@ -270,8 +275,9 @@ Validate your spec against this checklist before handoff (the [Validate](#valida
 
 | # | Check | Pass? |
 |---|-------|-------|
-| 1 | `## Task` present with clear objective | ☐ |
-| 2 | Success criteria are measurable | ☐ |
+| 1 | If the target GitHub repository URL is known, it is the first non-empty line before `## Task` | ☐ |
+| 2 | `## Task` present with clear objective | ☐ |
+| 3 | Success criteria are measurable | ☐ |
 
 **Optional context checks (apply only when present or relevant):**
 
