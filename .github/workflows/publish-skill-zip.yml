@@ -43,7 +43,7 @@ jobs:
 
           notes="Generated from ${GITHUB_SHA} on push to main.
 
-Download spec-writer.zip and upload it in Claude.ai from Customize > Skills > Create skill > Upload a skill."
+          Download spec-writer.zip and upload it in Claude.ai from Customize > Skills > Create skill > Upload a skill."
 
           git tag -f "$RELEASE_TAG" "$GITHUB_SHA"
           git push -f origin "refs/tags/$RELEASE_TAG"
