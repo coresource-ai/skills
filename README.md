@@ -2,7 +2,7 @@
 
 Portable Agent Skills for coding agents.
 
-This repository is also a Codex plugin named `skills`. It currently ships:
+For Codex marketplace installs, this repository publishes a plugin named `spec-writer`. It currently ships:
 
 - `spec-writer`: drafts agent-ready implementation specifications with a clear task, measurable success criteria, optional constraints/risks/edge cases, and optional advanced planning sections.
 
@@ -13,8 +13,12 @@ This repository is also a Codex plugin named `skills`. It currently ships:
 ├── .claude-plugin/
 │   ├── marketplace.json
 │   └── plugin.json
+├── .agents/plugins/marketplace.json
 ├── .codex-plugin/plugin.json
 ├── marketplace.json
+├── plugins/spec-writer/
+│   ├── .codex-plugin/plugin.json
+│   └── skills/spec-writer/
 ├── scripts/
 │   ├── install.sh
 │   └── validate.sh
@@ -31,10 +35,10 @@ Add the GitHub repository as a Codex plugin marketplace:
 
 ```bash
 codex plugin marketplace add coresource-ai/skills --ref main
-codex plugin add skills@coresourceai-skills
+codex plugin add spec-writer@coresourceai-skills
 ```
 
-The `skills` plugin exposes every skill under `./skills`.
+The `spec-writer` plugin exposes the `spec-writer` skill.
 
 ## How to Use
 

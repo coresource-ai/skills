@@ -1,0 +1,36 @@
+{
+  "name": "spec-writer",
+  "version": "0.1.0",
+  "description": "Draft agent-ready implementation specifications with clear tasks and measurable success criteria.",
+  "author": {
+    "name": "CoreSourceAI",
+    "url": "https://github.com/coresource-ai"
+  },
+  "homepage": "https://github.com/coresource-ai/skills",
+  "repository": "https://github.com/coresource-ai/skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "agent-skills",
+    "codex",
+    "planning",
+    "specification",
+    "spec-writer"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Spec Writer",
+    "shortDescription": "Draft implementation specs for agents",
+    "longDescription": "A focused skill for turning an implementation request into an agent-ready spec with a clear task, success criteria, constraints, risks, and edge cases when useful.",
+    "developerName": "CoreSourceAI",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive"
+    ],
+    "websiteURL": "https://github.com/coresource-ai/skills",
+    "defaultPrompt": [
+      "Use $spec-writer to draft an implementation spec."
+    ],
+    "screenshots": [],
+    "brandColor": "#2563EB"
+  }
+}

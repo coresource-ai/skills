@@ -1,0 +1,7 @@
+interface:
+  display_name: "Spec Writer"
+  short_description: "Draft agent-ready implementation specs"
+  default_prompt: "Use $spec-writer to draft an agent-ready implementation spec with a clear task and measurable success criteria."
+
+policy:
+  allow_implicit_invocation: true
