@@ -19,6 +19,8 @@ test -f "$ROOT_DIR/skills/spec-writer/SKILL.md"
 test -f "$ROOT_DIR/skills/spec-writer/agents/openai.yaml"
 test -f "$ROOT_DIR/skills/spec-writer/examples/since-flag.md"
 test -f "$ROOT_DIR/skills/spec-writer/examples/search-endpoint.md"
+test -f "$ROOT_DIR/scripts/package.sh"
+test -f "$ROOT_DIR/.github/workflows/publish-skill-zip.yml"
 
 grep -q '^name: spec-writer$' "$ROOT_DIR/skills/spec-writer/SKILL.md"
 grep -q '^name: spec-writer$' "$ROOT_DIR/plugins/spec-writer/skills/spec-writer/SKILL.md"
@@ -26,5 +28,6 @@ grep -q '^description:' "$ROOT_DIR/skills/spec-writer/SKILL.md"
 grep -q '^description:' "$ROOT_DIR/plugins/spec-writer/skills/spec-writer/SKILL.md"
 
 sh -n "$ROOT_DIR/scripts/install.sh"
+sh -n "$ROOT_DIR/scripts/package.sh"
 
 echo "skills repo validation passed"

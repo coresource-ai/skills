@@ -21,6 +21,7 @@ For Codex marketplace installs, this repository publishes a plugin named `spec-w
 │   └── skills/spec-writer/
 ├── scripts/
 │   ├── install.sh
+│   ├── package.sh
 │   └── validate.sh
 └── skills/
     └── spec-writer/
@@ -70,6 +71,16 @@ Or from inside Claude Code:
 /plugin install skills@coresourceai-skills
 ```
 
+## Install in Claude.ai
+
+Download the latest Claude.ai skill bundle from the GitHub release asset:
+
+https://github.com/coresource-ai/skills/releases/download/latest/spec-writer.zip
+
+Then upload `spec-writer.zip` in Claude.ai from `Customize > Skills > + Create skill > Upload a skill`.
+
+The ZIP is rebuilt on every push to `main` and contains `spec-writer/SKILL.md` at the top level, which is the upload shape Claude.ai expects.
+
 ## Direct Skill Install
 
 Install into Codex or Claude Code from a local checkout:
@@ -92,3 +103,13 @@ Install into any Agent Skills-compatible root from a local checkout:
 ```
 
 The validation script checks JSON syntax, required plugin files, skill frontmatter, examples, and install script syntax.
+
+## Package
+
+Build the Claude.ai upload ZIP locally:
+
+```bash
+./scripts/package.sh
+```
+
+The output is `dist/spec-writer.zip`.

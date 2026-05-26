@@ -1,0 +1,67 @@
+name: Publish skill zip
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-skill-zip
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate repository
+        run: ./scripts/validate.sh
+
+      - name: Build Claude.ai skill zip
+        run: ./scripts/package.sh
+
+      - name: Write checksum
+        run: |
+          cd dist
+          sha256sum spec-writer.zip > spec-writer.zip.sha256
+
+      - name: Publish latest release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: latest
+        run: |
+          set -eu
+
+          notes="Generated from ${GITHUB_SHA} on push to main.
+
+Download spec-writer.zip and upload it in Claude.ai from Customize > Skills > Create skill > Upload a skill."
+
+          git tag -f "$RELEASE_TAG" "$GITHUB_SHA"
+          git push -f origin "refs/tags/$RELEASE_TAG"
+
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release edit "$RELEASE_TAG" \
+              --title "Latest spec-writer skill bundle" \
+              --notes "$notes" \
+              --latest
+            gh release upload "$RELEASE_TAG" \
+              "dist/spec-writer.zip#spec-writer.zip" \
+              "dist/spec-writer.zip.sha256#spec-writer.zip.sha256" \
+              --clobber
+          else
+            gh release create "$RELEASE_TAG" \
+              "dist/spec-writer.zip#spec-writer.zip" \
+              "dist/spec-writer.zip.sha256#spec-writer.zip.sha256" \
+              --title "Latest spec-writer skill bundle" \
+              --notes "$notes" \
+              --latest
+          fi
